@@ -16,7 +16,7 @@ export class HelloWorldStack extends cdk.Stack {
       vpc: vpc
     })
 
-    new ecs_patterns.ApplicationLoadBalancedFargateService(this, 'MyFargateService', {
+    new ecs_patterns.ApplicationLoadBalancedFargateService(this, 'HelloWorldFargateService', {
       cluster: cluster,
       cpu: 512,
       desiredCount: 3,
