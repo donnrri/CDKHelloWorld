@@ -16,7 +16,7 @@ This branch contains two folders
 
 ### cognito-login-branch
 This branch represents my attempts to use Cognito in combination with the Application Load Balancer to handle user authentication. Because I did not get this code to deploy a functioning application, it is separate from the other code in its own branch. I did not have time to debug the error messages indicating that the hosted zone was not available, but the code is still useful as it shows my approach to the problem.
-The HelloWorld flder conatins a CDK project with Route53, public facing loadbalancer, ECS (Fargate) which runs a Docker container (nginx server serving an hello world html page).
+The HelloWorld folder conatins a CDK project with Route53, public facing loadbalancer, ECS (Fargate) which runs a Docker container (nginx server serving an hello world html page).
 
 ### Run the code
 
