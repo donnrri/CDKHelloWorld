@@ -30,3 +30,12 @@ To deploy the infrastructure run
 ```
 cdk deploy
 ```
+
+####Testing
+
+Only simple snapshot tests are provided in the code. To run the test 
+
+```
+npm run test
+```
+
