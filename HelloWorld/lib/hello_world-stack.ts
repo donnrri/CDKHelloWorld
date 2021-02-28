@@ -10,7 +10,7 @@ export class HelloWorldStack extends cdk.Stack {
       maxAzs: 3
     })
 
-    const cluster = new ecs.Cluster(this, 'MyCluster', {
+    const cluster = new ecs.Cluster(this, 'HelloWorldCluster', {
       vpc: vpc
     })
 
