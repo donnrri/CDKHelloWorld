@@ -12,7 +12,7 @@ export class HelloWorldStack extends cdk.Stack {
 
     let vpc:IVpc
 
-    if(process.env.VPC_ID){
+    if(process.env.VPC_ID != null){
       vpc = ec2.Vpc.fromLookup(this, process.env.VPC_ID, {})
     }else{
       vpc =  new ec2.Vpc(this, 'DTHelloWorldVPC', {
