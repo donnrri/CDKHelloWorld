@@ -18,7 +18,7 @@ export class HelloWorldStack extends cdk.Stack {
     let vpc:IVpc
 
     const hostedZone = new route53.HostedZone(this, "HostedZone",{
-        zoneName:'testdomainfinder.net'
+        zoneName: process.env.DOMAIN_NAME
       }
      )
   
@@ -27,7 +27,7 @@ export class HelloWorldStack extends cdk.Stack {
       "Certificate",
       {      
         hostedZone: hostedZone,
-        domainName:'testdomainfinder.net'
+        domainName: process.env.DOMAIN_NAME
       }
     )
 
@@ -40,16 +40,16 @@ export class HelloWorldStack extends cdk.Stack {
       this, 
       "DTHelloWorldCustomDomain",
       {
-        domain:"helloworld",
+        domain:process.env.USERPOOL_DOMAIN,
         userPoolId: pool.userPoolId,
 
       }
     )
 
-    const userpoolClient = new cognito.UserPoolClient( this, "DTHelloWorldUserPoolClinet", {
+    const userpoolClient = new cognito.UserPoolClient( this, "DTHelloWorldUserPoolClient", {
       generateSecret: true,
       userPool: pool,
-      userPoolClientName: "DTHelloWorldUserPoolClinet"
+      userPoolClientName: "DTHelloWorldUserPoolClient"
     })
 
 
@@ -68,7 +68,7 @@ export class HelloWorldStack extends cdk.Stack {
     new ecs_patterns.ApplicationLoadBalancedFargateService(this, 'DTHelloWorldFargateService', {
       cluster: cluster,
       certificate: cert,
-      domainName: "testdomainfinder.net",
+      domainName: process.env.DOMAIN_NAME,
       domainZone: hostedZone,
       cpu: 512,
       desiredCount: 3,
