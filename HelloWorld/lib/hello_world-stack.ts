@@ -8,19 +8,19 @@ export class HelloWorldStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const vpc = new ec2.Vpc(this, 'HelloWorldVPC', {
+    const vpc = new ec2.Vpc(this, 'DTHelloWorldVPC', {
       maxAzs: 3
     })
 
-    const cluster = new ecs.Cluster(this, 'HelloWorldCluster', {
+    const cluster = new ecs.Cluster(this, 'DTHelloWorldCluster', {
       vpc: vpc
     })
 
-    new ecs_patterns.ApplicationLoadBalancedFargateService(this, 'HelloWorldFargateService', {
+    new ecs_patterns.ApplicationLoadBalancedFargateService(this, 'DTHelloWorldFargateService', {
       cluster: cluster,
       cpu: 512,
       desiredCount: 3,
-      taskImageOptions: {image: ecs.ContainerImage.fromAsset(path.resolve(__dirname, '.','container'))},
+      taskImageOptions: {image: ecs.ContainerImage.fromAsset(path.resolve(__dirname, '..','container'))},
       memoryLimitMiB: 2048,
       publicLoadBalancer: true
     })
