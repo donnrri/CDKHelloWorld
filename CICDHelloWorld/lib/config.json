@@ -1,0 +1,9 @@
+{
+     "repoProps":{
+        "repoType": "REPO_TYPE", 
+        "repoName": "REPO_NAME",
+        "repoOwner": "REPO_OWNER",
+        "repoBranchName":"BRANCH_NAME",
+        "repoTokenName": "github-token"
+    }   
+}
