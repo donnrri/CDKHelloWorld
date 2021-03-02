@@ -26,6 +26,11 @@ I belive this is a timeout issue and the certificate is taking too long to gener
 The HelloWorld folder conatins a CDK project with Route53, public facing loadbalancer, ECS (Fargate) which runs a Docker container (nginx server serving an hello world html page).
 
 ### Run the code
+Install the reuired dependencies. Navigate into the HelloWorld folder arnd run
+
+```
+npm install
+```
 
 If this is the first time you are deploying a CDK project run
 ```
